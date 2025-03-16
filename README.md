@@ -1,7 +1,7 @@
 # OS-project
 Multithreaded operating system with time sharing. This operating system also provides threads, semaphores, asynchronous context switch, preemption and interrupts from timer and keyboard.
 
-This project was task i was given at my university and it has to be runned inside educational operating system xv6.
+This project was task i was given at university i attend and it has to be runned inside educational operating system xv6.
 Kernel was implemented for RISC-V processor architecture.
 This xv6 system has been significantly modified for this occasion by removing the many functionalities (context switching and process scheduling, memory management,
 file subsystem, disk management, etc.).
