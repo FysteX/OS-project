@@ -27,7 +27,7 @@ public:
 
     void free();
 
-    void extend();      //kad ekstendujes, ubacujes u extendovani niz redom kako je u starom
+    void extend(); 
 
     int get_size();
 
