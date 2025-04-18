@@ -12,12 +12,12 @@
 class kconsole {
 private:
 
-// o je oznaka za output
+
     static char* o_char_buffer;
     static int o_head;
     static int o_tail;
     static int o_size;
-    // i je onzaka za input
+
     static char* i_char_buffer;
     static int i_head;
     static int i_tail;
