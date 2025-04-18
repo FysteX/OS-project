@@ -19,7 +19,6 @@ ksemaphore::~ksemaphore() {
     suspended_threads.free();
 }
 
-//ako je -1 onda ne treba da ceka
 int ksemaphore::wait(int time) {
     if(--val < 0) {
         kthread::running->block();
@@ -28,7 +27,7 @@ int ksemaphore::wait(int time) {
 			kscheduler::put_to_sleep(time);
 		}
     }
-    return 0; // treba da se doda ako se desi greska
+    return 0;
 }
 
 int ksemaphore::try_wait() {
@@ -40,7 +39,6 @@ int ksemaphore::try_wait() {
 }
 
 int ksemaphore::signal() {
-    //ako nema niti koje cekaju na semaforu onda funkcija signal nema efekta
     if (suspended_threads.get_size() == 0) {
         val++;
         return 0;
@@ -53,12 +51,11 @@ int ksemaphore::signal() {
         }
         temp->unblock();
         if (temp->get_sleep_time() >= 0) {
-            //treba se izbaci iz sleeping_threads       p
             temp->set_sleep_time(-1);
         }
         kscheduler::put_thread(temp);
     }
-    return 0; // treba da se doda ako se desi greska
+    return 0;
 }
 
 int ksemaphore::get_number_of_blocked_threads() {
