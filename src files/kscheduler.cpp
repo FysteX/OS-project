@@ -38,7 +38,6 @@ void kscheduler::update_sleeping_threads() {
     kthread* temp;
     for(int i = 0; i < size_sleeping(); i++) {
          temp = sleeping_threads.get();
-         //if (temp == nullptr) return;
          temp->dec_sleep_time();
          if(temp->get_sleep_time() == 0) {
              put_thread(temp);
