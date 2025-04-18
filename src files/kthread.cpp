@@ -40,7 +40,6 @@ kthread::kthread(body thread_body, uint64 sp):
 {
     thread_context = (context*)kmem_alocator::kalocate(sizeof(context) / MEM_BLOCK_SIZE + (sizeof(context) % MEM_BLOCK_SIZE) ? 1 : 0);
     thread_context->sp = sp;
-    //ovde mozda moze da se doda da se setuje finished
 }
 
 void kthread::yield(kthread* old_thread, kthread* new_thread) {
